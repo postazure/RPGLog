@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  group_id: 1
+  name: MyString
+  race: MyString
+  money: MyString
+  exp: MyString
+  level: MyString
+
+two:
+  user_id: 1
+  group_id: 1
+  name: MyString
+  race: MyString
+  money: MyString
+  exp: MyString
+  level: MyString
