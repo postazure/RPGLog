@@ -3,3 +3,4 @@
 <p>
   <%= @invite.message %>
 </p>
+<%= link_to "Join Group", new_group_character_path(@invite.group_id, {invite_id: @invite.id}) %>

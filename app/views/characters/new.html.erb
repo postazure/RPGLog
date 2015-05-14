@@ -1,0 +1,23 @@
+<h1>Create Character for <%= @character.group.name %></h1>
+
+<% if @character.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@character.errors.count, "error") %> prohibited this character from being saved:</h2>
+
+    <ul>
+    <% @character.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @character, url:"/groups/#{@character.group.id}/characters" do |f| %>
+  <%= hidden_field :invite_id, params[:invite_id] %>
+  <%= f.text_field :name, placeholder:"name" %>
+  <%= f.text_field :race, placeholder:"race" %>
+  <%= f.text_field :money, placeholder:"money" %>
+  <%= f.number_field :exp, placeholder:"experiance" %>
+  <%= f.number_field :level, placeholder:"level" %>
+  <%= f.submit %>
+<% end %>
