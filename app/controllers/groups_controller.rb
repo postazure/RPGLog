@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
 
     @groups = {}
     @groups[:player] = characters.map {|character| character.group}
-    @groups[:owner] = Group.where(owner_id: current_user.id)
+    @groups[:owner] = current_user.groups
   end
 
   def new

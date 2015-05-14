@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150513233500) do
+ActiveRecord::Schema.define(version: 20150514164219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,16 @@ ActiveRecord::Schema.define(version: 20150513233500) do
 
   create_table "groups", force: true do |t|
     t.string   "name"
-    t.integer  "owner_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "private_messages", force: true do |t|
+    t.string   "subject"
+    t.integer  "from_user"
+    t.integer  "user_id"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

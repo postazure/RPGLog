@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
 
+  resources :private_messages
+
   resources :groups do
     resources :characters
   end
