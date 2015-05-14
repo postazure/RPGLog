@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
 
-  get 'group/:id/invite/new' => 'group_invites#new', as: :new_group_invite
-  post 'group/:id/invite' => 'group_invites#create', as: :create_group_invite
+  get 'group/:group_id/invite/new' => 'group_invites#new', as: :new_group_invite
+  post 'group/:group_id/invite' => 'group_invites#create', as: :create_group_invite
+  get 'group/:group_id/invite/:id' => 'group_invites#show', as: :group_invite
 
   resources :private_messages
 

@@ -1,6 +1,7 @@
 class PrivateMessagesController < ApplicationController
   def index
     @messages = current_user.private_messages
+    @invites = current_user.group_invites
   end
 
   def show

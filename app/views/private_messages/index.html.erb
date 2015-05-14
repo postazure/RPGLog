@@ -1,6 +1,14 @@
 <h1>Private Messages</h1>
 
 <%= link_to "Send Message", new_private_message_path %>
+
+<h3>Invites</h3>
+<% @invites.each do |invite| %>
+  <%= link_to invite.group.name, group_invite_path(invite.group_id, invite.id) %>
+<% end %>
+
+
+<h3>Messages</h3>
 <% @messages.each do |message| %>
   <p>
     <%= link_to message.subject, message %>

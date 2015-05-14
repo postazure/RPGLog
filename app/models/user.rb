@@ -7,5 +7,5 @@ class User < ActiveRecord::Base
   has_many :characters
   has_many :groups
   has_many :private_messages
-  has_many :invites
+  has_many :group_invites
 end
