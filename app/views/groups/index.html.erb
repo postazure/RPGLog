@@ -1,7 +1,8 @@
-<%= link_to "Create a Group", path %>
+<%= link_to "Create a Group", new_group_path %>
+
 <h1>Groups You Own</h1>
 <% @groups[:owner].each do |group| %>
-  <%= group[:name] %>
+  <%= link_to group[:name], group_path(group) %>
 <% end %>
 
 <h1>Groups You Play IN</h1>
