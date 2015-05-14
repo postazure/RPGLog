@@ -12,8 +12,7 @@ class GroupsController < ApplicationController
   end
 
   def create
-    group = Group.new(group_params)
-    group.owner_id = current_user.id
+    group = current_user.groups.new(group_params)
 
     if group.save
       redirect_to group, notice: 'Group was created'
@@ -38,12 +37,11 @@ class GroupsController < ApplicationController
 
   def show
     @group = Group.find_by(id: params[:id])
-    @group_owner = User.find_by(id: @group.owner_id)
+    @group_owner = User.find_by(id: @group.user_id)
   end
 
   private
   def group_params
     params.require(:group).permit(:name)
   end
-
 end
