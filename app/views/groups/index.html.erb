@@ -1,0 +1,10 @@
+<%= link_to "Create a Group", path %>
+<h1>Groups You Own</h1>
+<% @groups[:owner].each do |group| %>
+  <%= group[:name] %>
+<% end %>
+
+<h1>Groups You Play IN</h1>
+<% @groups[:player].each do |group| %>
+  <%= group[:name] %>
+<% end %>

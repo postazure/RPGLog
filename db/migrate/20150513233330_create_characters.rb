@@ -6,8 +6,8 @@ class CreateCharacters < ActiveRecord::Migration
       t.string :name
       t.string :race
       t.string :money
-      t.string :exp
-      t.string :level
+      t.integer :exp
+      t.integer :level
 
       t.timestamps
     end

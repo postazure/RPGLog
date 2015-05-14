@@ -22,15 +22,15 @@ ActiveRecord::Schema.define(version: 20150513233500) do
     t.string   "name"
     t.string   "race"
     t.string   "money"
-    t.string   "exp"
-    t.string   "level"
+    t.integer  "exp"
+    t.integer  "level"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "groups", force: true do |t|
     t.string   "name"
-    t.string   "owner_id"
+    t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
