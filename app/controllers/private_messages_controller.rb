@@ -6,6 +6,7 @@ class PrivateMessagesController < ApplicationController
 
   def show
     @message = PrivateMessage.find(params[:id])
+    @message.update_attribute(:read, true)
     @sender = User.find_by(id: @message.from_user)
   end
 

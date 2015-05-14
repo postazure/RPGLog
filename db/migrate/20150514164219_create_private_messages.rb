@@ -5,6 +5,7 @@ class CreatePrivateMessages < ActiveRecord::Migration
       t.integer :from_user
       t.integer :user_id
       t.text :body
+      t.boolean :read
 
       t.timestamps
     end
