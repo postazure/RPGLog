@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150514164219) do
+ActiveRecord::Schema.define(version: 20150514194644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20150514164219) do
     t.string   "money"
     t.integer  "exp"
     t.integer  "level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "group_invites", force: true do |t|
+    t.integer  "group_id"
+    t.text     "message"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,21 @@
+<h1>Invite New Member</h1>
+
+<% if @invite.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@invite.errors.count, "error") %> prohibited this invite from being saved:</h2>
+
+    <ul>
+    <% @invite.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for @invite, url: create_group_invite_path do |f| %>
+  <%= text_field_tag :recipient, nil, placeholder:"Recipient's Email" %>
+
+  <%= f.label "Message" %>
+  <%= f.text_area :message, value:@default_msg %>
+  <%= f.submit "Send Invite" %>
+<% end %>

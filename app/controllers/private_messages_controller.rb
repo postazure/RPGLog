@@ -18,19 +18,14 @@ class PrivateMessagesController < ApplicationController
     recipient = User.find_by(email: params[:recipient])
 
     if recipient
-      @message.errors.add(:user_id, "Recipient account not found.")
+      # @message.errors.add(:user_id, "Recipient account not found.")
       @message.user_id = recipient.id
-    else
-      @message.from_user = current_user.id
     end
 
-
-    p "@"*20
-    pp @message.errors
-    p "@"*20
+    @message.from_user = current_user.id
 
     if @message.save
-      redirect_to private_messages_path, notice: "Message sent"
+      redirect_to private_messages_path, notice: "Message Sent"
     else
       render :new
     end
