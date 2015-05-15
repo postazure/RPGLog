@@ -1,0 +1,14 @@
+<h1>Create Story Segment for <%= @post_segment.post.title %></h1>
+<%= render partial: "shared/post_segments" %>
+
+<%= form_for @post_segment, url:group_post_post_segments_path do |f| %>
+  <%= f.text_field :subject, placeholder:"subject" %>
+  <%= f.text_area :body, placeholder:"body" %>
+
+  <%= f.label :visable %>
+  <%= f.check_box :visable %>
+
+  <%= f.text_area :image, placeholder:"image url" %>
+
+  <%= f.submit %>
+<% end %>

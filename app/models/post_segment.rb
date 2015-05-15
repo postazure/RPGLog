@@ -1,5 +1,5 @@
 class PostSegment < ActiveRecord::Base
-  belongs_to :Post
+  belongs_to :post
 
   validates :subject, presence: true
 end

@@ -1,0 +1,16 @@
+<h1>Edit Story Segment for <%= @post_segment.post.title %></h1>
+<%= render partial: "shared/post_segments" %>
+
+<%= form_for @post_segment, url:group_post_post_segment_path do |f| %>
+  <%= f.text_field :subject, placeholder:"subject" %>
+  <%= f.text_area :body, placeholder:"body" %>
+
+  <%= f.label :visable %>
+  <%= f.check_box :visable %>
+
+  <%= f.text_area :image, placeholder:"image url" %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to 'Delete', group_post_post_segment_path(@post_segment.post.group, @post_segment.post, @post_segment), method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -1,0 +1,4 @@
+<h1><%= @post.title %></h1>
+<%= render partial: "shared/post_segments" %>
+
+<%= link_to "Add Segment", new_group_post_post_segment_path(@post.group, @post) %>

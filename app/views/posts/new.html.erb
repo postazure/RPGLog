@@ -1,0 +1,10 @@
+<h1>New Post</h1>
+
+<%= form_for @post, url:group_posts_path do |f| %>
+  <%= f.text_field :title, placeholder:"title" %>
+
+  <%= f.label :visable %>
+  <%= f.check_box :visable %>
+
+  <%= f.submit %>
+<% end %>

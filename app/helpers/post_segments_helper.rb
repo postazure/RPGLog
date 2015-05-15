@@ -1,0 +1,2 @@
+module PostSegmentsHelper
+end

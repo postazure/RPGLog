@@ -1,0 +1,6 @@
+<% @post.post_segments.each do |segment| %>
+  <p>
+    <%= segment.subject %>
+    <%= link_to "Edit Segment", edit_group_post_post_segment_path(@post.group, @post, segment) %>
+  </p>
+<% end %>
