@@ -18,5 +18,7 @@
 <h3>Posts</h3>
 <%= link_to "New Post", new_group_post_path(@group) %>
 <% @group.posts.each do |post| %>
-  <%= post.title %>
+  <p>
+    <%= link_to post.title, group_post_path(@group, post) %>
+  </p>
 <% end %>
