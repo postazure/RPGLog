@@ -1,0 +1,9 @@
+<h1>Edit Post</h1>
+<%= form_for @post, url:group_post_path(@post.group, @post) do |f| %>
+  <%= f.text_field :title, placeholder:"title" %>
+
+  <%= f.label :visable %>
+  <%= f.check_box :visable %>
+
+  <%= f.submit %>
+<% end %>

@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
 
     if @post.save
-      redirect_to group_post_path(group, @post), notice:"New Post Created"
+      redirect_to group_post_path(group, @post), notice:"Post saved"
     else
       render :new
     end
@@ -17,6 +17,19 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+  end
+
+  def edit
+    @post = Post.find_by(id: params[:id])
+  end
+
+  def update
+    @post = Post.find_by(id: params[:id])
+    if @post.update(post_params)
+      redirect_to group_post_path(@post.group, @post), notice:"Post updated"
+    else
+      render :edit
+    end
   end
 
   private
