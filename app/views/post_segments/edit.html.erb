@@ -1,5 +1,5 @@
 <h1>Edit Story Segment for <%= @post_segment.post.title %></h1>
-<%= render partial: "shared/post_segments" %>
+
 
 <%= form_for @post_segment, url:group_post_post_segment_path do |f| %>
   <%= f.text_field :subject, placeholder:"subject" %>
