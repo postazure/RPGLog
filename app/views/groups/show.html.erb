@@ -8,6 +8,8 @@
 
 <%= link_to "Invite", new_group_invite_path(@group) %>
 
-<% @group.characters.each do |character| %>
-  <%= character.name %>
+<% @group.players.each do |player| %>
+  <p>
+    <%= link_to player.name, group_player_path(@group.id, player.id) %>
+  </p>
 <% end %>

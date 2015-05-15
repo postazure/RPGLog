@@ -1,5 +1,5 @@
 class Group < ActiveRecord::Base
-  has_many :characters
+  has_many :players
   has_many :group_invites
   belongs_to :user
 

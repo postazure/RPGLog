@@ -1,14 +1,15 @@
-class CharactersController < ApplicationController
+class PlayerController < ApplicationController
   def new
     group = Group.find_by(id: params[:group_id])
-    @character = group.characters.new(group_id: group.id)
+    @player = group.players.new()
+
   end
 
   def create
     invite_id = params[:invite_id].keys.first
     invite = GroupInvite.find_by(id: invite_id)
 
-    @character = current_user.characters.new(character_params)
+    @character = current_user.players.new(player_params)
     @character.group_id = params[:group_id]
     if @character.save
       invite.destroy
@@ -18,14 +19,20 @@ class CharactersController < ApplicationController
     end
   end
 
+  def show
+    @player = Player.find_by(id: params[:id])
+  end
+
   private
-  def character_params
-    params.require(:character).permit(
+  def player_params
+    params.require(:player).permit(
       :name,
       :race,
       :money,
       :exp,
-      :level
+      :level,
+      :gender,
+      :game_class
     )
   end
 end

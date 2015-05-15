@@ -6,10 +6,11 @@ Rails.application.routes.draw do
   post 'group/:group_id/invite' => 'group_invites#create', as: :create_group_invite
   get 'group/:group_id/invite/:id' => 'group_invites#show', as: :group_invite
 
+
   resources :private_messages
 
   resources :groups do
-    resources :characters
+    resources :player
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

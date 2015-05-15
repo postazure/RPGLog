@@ -1,9 +1,9 @@
 class GroupsController < ApplicationController
   def index
-    characters = Character.where(user_id: current_user.id)
+    players = current_user.players
 
     @groups = {}
-    @groups[:player] = characters.map {|character| character.group}
+    @groups[:player] = players.map {|player| player.group}
     @groups[:owner] = current_user.groups
   end
 

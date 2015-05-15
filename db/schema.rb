@@ -16,18 +16,6 @@ ActiveRecord::Schema.define(version: 20150514194644) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "characters", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "group_id"
-    t.string   "name"
-    t.string   "race"
-    t.string   "money"
-    t.integer  "exp"
-    t.integer  "level"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "group_invites", force: true do |t|
     t.integer  "group_id"
     t.text     "message"
@@ -39,6 +27,20 @@ ActiveRecord::Schema.define(version: 20150514194644) do
   create_table "groups", force: true do |t|
     t.string   "name"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "players", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.string   "name"
+    t.string   "game_class"
+    t.string   "gender"
+    t.string   "race"
+    t.string   "money",      default: "0"
+    t.integer  "exp",        default: 0
+    t.integer  "level",      default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
   end

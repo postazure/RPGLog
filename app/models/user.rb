@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :characters
+  has_many :players
   has_many :groups
   has_many :private_messages
   has_many :group_invites
