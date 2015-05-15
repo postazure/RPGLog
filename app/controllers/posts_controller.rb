@@ -17,6 +17,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @post_segments = @post.post_segments.order(created_at: :asc)
+    toggle_post_segment_visable if params[:visable]
   end
 
   def edit
@@ -42,5 +44,10 @@ class PostsController < ApplicationController
   private
   def post_params
     params.require(:post).permit(:title, :visable)
+  end
+
+  def toggle_post_segment_visable
+    segment = PostSegment.find_by(id: params[:segment])
+    segment.update_attribute(:visable, params[:visable])
   end
 end

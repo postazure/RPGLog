@@ -2,10 +2,15 @@
 <%= link_to "edit post", edit_group_post_path(@post.group, @post) %>
 <%= link_to "Add Segment", new_group_post_post_segment_path(@post.group, @post) %>
 
-<% @post.post_segments.each do |segment| %>
+<% @post_segments.each do |segment| %>
   <ul>
     <li>
       <h3><%= segment.subject %></h3>
+      <% if segment.visable %>
+        <%= link_to "Hide", group_post_path(@post.group, @post, {segment:segment.id, visable:"false"}) %>
+      <% else %>
+        <%= link_to "Show", group_post_path(@post.group, @post, {segment:segment.id, visable:"true"}) %>
+      <% end %>
       <p>
         <%= segment.body %>
       </p>
