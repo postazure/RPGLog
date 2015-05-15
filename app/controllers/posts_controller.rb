@@ -32,6 +32,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find_by(id: params[:id])
+    @post.destroy
+    redirect_to @post.group, notice:"Post deleted"
+
+  end
+
   private
   def post_params
     params.require(:post).permit(:title, :visable)
