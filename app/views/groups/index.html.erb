@@ -1,5 +1,3 @@
-<%= link_to "Create a Group", new_group_path %>
-
 <h1>Groups You Own</h1>
 <% @groups[:owner].each do |group| %>
   <%= link_to group[:name], group_path(group) %>

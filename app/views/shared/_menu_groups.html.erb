@@ -1,0 +1,13 @@
+<% if current_page?(groups_path) %>
+  <div class="item">
+    <i class="users icon"></i> Groups
+    <div class="menu">
+      <%= link_to "New Group", new_group_path, class:"item" %>
+      <!--<a class="active item">Search</a>
+      <a class="item">Add</a>
+      <a class="item">Remove</a>-->
+    </div>
+  </div>
+<% else %>
+  <%= link_to raw("<i class='users icon'></i>Groups"), groups_path, class:"item" %>
+<% end %>
