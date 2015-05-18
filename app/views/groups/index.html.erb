@@ -1,9 +1,35 @@
-<h1>Groups You Own</h1>
-<% @groups[:owner].each do |group| %>
-  <%= link_to group[:name], group_path(group) %>
-<% end %>
+<h1 class="ui header">Groups</h1>
 
-<h1>Groups You Play IN</h1>
+<h3>Game Master</h3>
+<div class="ui divided list">
+  <% @groups[:owner].each do |group| %>
+    <div class="item">
+      <i class="icon"><%= group.players.length %></i>
+      <div class="content">
+        <%= link_to group[:name], group_path(group), class:"header" %>
+        <div class="description truncate">stuff</div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<h3>Player</h3>
+<div class="ui divided list">
 <% @groups[:player].each do |group| %>
-  <%= link_to group[:name], group_path(group) %>
+  <div class="item">
+    <i class="icon"><%= group.players.length %></i>
+    <div class="content">
+      <%= link_to group[:name], group_path(group), class:"header"%>
+      <div class="description truncate">
+        <% group.players.each do |player| %>
+          <% if player.user_id == current_user.id %>
+            <strong><%= "#{player.level}-#{player.name}" %></strong>
+          <% else %>
+            <%= "#{player.level}-#{player.name}" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 <% end %>
+</div>

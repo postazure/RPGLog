@@ -1,17 +1,36 @@
-<h1>Private Messages</h1>
+<h1 class="ui header">Inbox</h1>
 
-
-
-<h3>Invites</h3>
-<% @invites.each do |invite| %>
-  <%= link_to invite.group.name, group_invite_path(invite.group_id, invite.id) %>
+<h3>Group Invites</h3>
+<% if @invites.empty? %>
+  No Invites
+<% else %>
+  <div class="ui divided list">
+    <% @invites.each do |invite| %>
+    <div class="item">
+      <i class="user icon"></i>
+      <div class="content">
+        <%= link_to invite.group.name, group_invite_path(invite.group_id, invite.id), class:"header" %>
+        <div class="description truncate"><%= invite.message %></div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 <% end %>
-
 
 <h3>Messages</h3>
-<% @messages.each do |message| %>
-  <p>
-    <%= link_to message.subject, message %>
-    <%= "(NEW)" unless message.read %>
-  </p>
+<% if @messages.empty? %>
+  No Messages
+<% else %>
+  <div class="ui divided list">
+    <% @messages.each do |message| %>
+    <div class="item">
+      <%= raw('<i class="mail icon"></i>') unless message.read %>
+      <div class="content">
+        <%= link_to message.subject, message, class:"header" %>
+        <div class="description truncate"><%= message.body %></div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 <% end %>
+</div>

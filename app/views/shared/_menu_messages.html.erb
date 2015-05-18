@@ -1,7 +1,7 @@
 <% if current_page?(private_messages_path) %>
 
   <div class="item">
-    <i class="mail icon"></i> Messages
+    <i class="mail icon"></i> Inbox
     <div class="menu">
       <%= link_to "New Message", new_private_message_path, class:"item" %>
       <!--<a class="active item">Search</a>-->
@@ -10,5 +10,5 @@
   </div>
 
 <% else %>
-  <%= link_to raw("<i class='mail icon'></i>Messages"), private_messages_path, class:"item" %>
+  <%= link_to raw("<i class='mail icon'></i>Inbox"), private_messages_path, class:"item" %>
 <% end %>
